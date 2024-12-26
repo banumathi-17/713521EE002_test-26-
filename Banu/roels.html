@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Roles - Job Application Platform</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your external CSS file -->
+    <style>
+        /* Basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .job-role-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .job-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .job-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .job-card h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .job-card p {
+            color: #555;
+            line-height: 1.6;
+        }
+        .job-card .apply-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 16px;
+            text-align: center;
+        }
+        .job-card .apply-btn:hover {
+            background-color: #218838;
+        }
+        .search-bar {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .search-bar input {
+            width: 50%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        .search-bar button {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .search-bar button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Explore Job Roles</h1>
+    </header>
+
+    <!-- Main Content Container -->
+    <div class="container">
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Search for job roles..." onkeyup="filterJobs()">
+            <button onclick="filterJobs()">Search</button>
+        </div>
+
+        <!-- Job Roles Listing -->
+        <div class="job-role-list" id="job-list">
+            <!-- Job Card 1 -->
+            <div class="job-card">
+                <h3>Software Engineer</h3>
+                <p>Join our development team to build innovative software solutions for clients across various industries.</p>
+                <p><strong>Location:</strong> Remote</p>
+                <p><strong>Experience:</strong> 2+ years</p>
+                <a href="/apply/1" class="apply-btn">Apply Now</a>
+            </div>
+
+            <!-- Job Card 2 -->
+            <div class="job-card">
+                <h3>Data Analyst</h3>
+                <p>Work with data to uncover insights and help businesses make data-driven decisions. Must be proficient in SQL and Excel.</p>
+                <p><strong>Location:</strong> New York, NY</p>
+                <p><strong>Experience:</strong> 1+ years</p>
+                <a href="/apply/2" class="apply-btn">Apply Now</a>
+            </div>
+
+            <!-- Job Card 3 -->
+            <div class="job-card">
+                <h3>Product Manager</h3>
+                <p>Lead the development and management of new products from concept to launch. Excellent communication skills are a must.</p>
+                <p><strong>Location:</strong> San Francisco, CA</p>
+                <p><strong>Experience:</strong> 3+ years</p>
+                <a href="/apply/3" class="apply-btn">Apply Now</a>
+            </div>
+
+            <!-- Job Card 4 -->
+            <div class="job-card">
+                <h3>Graphic Designer</h3>
+                <p>Create visually stunning designs for websites, marketing materials, and branding initiatives. Proficiency in Adobe Suite required.</p>
+                <p><strong>Location:</strong> Chicago, IL</p>
+                <p><strong>Experience:</strong> 2+ years</p>
+                <a href="/apply/4" class="apply-btn">Apply Now</a>
+            </div>
+
+            <!-- Job Card 5 -->
+            <div class="job-card">
+                <h3>Marketing Specialist</h3>
+                <p>Develop and execute marketing strategies to promote our products and services across digital channels.</p>
+                <p><strong>Location:</strong> Remote</p>
+                <p><strong>Experience:</strong> 1+ years</p>
+                <a href="/apply/5" class="apply-btn">Apply Now</a>
+            </div>
+
+            <!-- Job Card 6 -->
+            <div class="job-card">
+                <h3>HR Manager</h3>
+                <p>Oversee recruitment, employee relations, and HR policies. Help foster a positive company culture.</p>
+                <p><strong>Location:</strong> Austin, TX</p>
+                <p><strong>Experience:</strong> 4+ years</p>
+                <a href="/apply/6" class="apply-btn">Apply Now</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for filtering job roles
+        function filterJobs() {
+            const searchInput = document.getElementById('search').value.toLowerCase();
+            const jobCards = document.querySelectorAll('.job-card');
+
+            jobCards.forEach(card => {
+                const jobTitle = card.querySelector('h3').textContent.toLowerCase();
+                const jobDescription = card.querySelector('p').textContent.toLowerCase();
+
+                if (jobTitle.includes(searchInput) || jobDescription.includes(searchInput)) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

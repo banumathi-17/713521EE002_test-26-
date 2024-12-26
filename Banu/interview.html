@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Scheduling - Job Application Platform</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your external CSS file -->
+    <style>
+        /* Basic Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        .form-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        .form-container h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-group select, .form-group input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 14px;
+        }
+        .form-group .datepicker {
+            width: 100%;
+            padding: 10px;
+        }
+        .form-group input[type="time"] {
+            width: 100%;
+        }
+        .form-group button {
+            padding: 12px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .form-group button:hover {
+            background-color: #218838;
+        }
+        .summary-box {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .summary-box h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .summary-box ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .summary-box ul li {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+        .summary-box ul li:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Schedule Interview</h1>
+    </header>
+
+    <!-- Main Content Container -->
+    <div class="container">
+        <div class="form-container">
+            <h2>Allocate Interview Date and Time</h2>
+
+            <!-- Form to Schedule Interview -->
+            <form action="/schedule-interview" method="POST">
+                
+                <!-- Candidate Selection -->
+                <div class="form-group">
+                    <label for="candidate-name">Select Candidate</label>
+                    <select id="candidate-name" name="candidate_name" required>
+                        <option value="">Select Candidate</option>
+                        <option value="John Doe">banumathi</option>
+                        <option value="Jane Smith">Jasmeen</option>
+                        <option value="Michael Brown">harishini</option>
+                        <!-- Dynamic list of candidates would go here -->
+                    </select>
+                </div>
+
+                <!-- Interview Date Picker -->
+                <div class="form-group">
+                    <label for="interview-date">Select Interview Date</label>
+                    <input type="date" id="interview-date" name="interview_date" required class="datepicker">
+                </div>
+
+                <!-- Interview Time Picker -->
+                <div class="form-group">
+                    <label for="interview-time">Select Interview Time</label>
+                    <input type="time" id="interview-time" name="interview_time" required>
+                </div>
+
+                <!-- Interview Location -->
+                <div class="form-group">
+                    <label for="interview-location">Interview Location</label>
+                    <input type="text" id="interview-location" name="interview_location" required placeholder="Enter interview location (e.g., office address or virtual link)">
+                </div>
+
+                <!-- Additional Instructions -->
+                <div class="form-group">
+                    <label for="interview-instructions">Interview Instructions (Optional)</label>
+                    <textarea id="interview-instructions" name="interview_instructions" placeholder="Provide any additional instructions or interview guidelines for the candidate"></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-group">
+                    <button type="submit">Schedule Interview</button>
+                </div>
+
+            </form>
+
+            <!-- Interview Summary Box -->
+            <div class="summary-box">
+                <h3>Candidate Information Summary</h3>
+                <ul>
+                    <li><strong>Candidate Name:</strong> banumathi</li>
+                    <li><strong>Job Title Applied For:</strong> Software Engineer</li>
+                    <li><strong>Email:</strong> banuraman@1712.com</li>
+                    <li><strong>Phone:</strong> +1234567890</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
